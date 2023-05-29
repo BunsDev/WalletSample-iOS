@@ -15,7 +15,7 @@ final class WalletPresenter: ObservableObject {
     }
 
     @Published var currentAddress = EthereumAddress.zero
-    @Published var etherBalanceString = ""
+    @Published var etherBalanceString = "0"
     @Published var showSendPage = false
 
     var currentAddressString: String {
