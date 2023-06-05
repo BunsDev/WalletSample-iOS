@@ -19,7 +19,10 @@ struct SimpleWalletApp: App {
             ContentView()
                 .task {
                     let web3 = await instantiateWeb3()
-                    let currentAccount = (try? web3?.wallet.getAccounts().first) ?? .zero
+                    let useCase = WalletUseCase()
+                    let manager = useCase.loadKeystoreManager()
+                    let currentAccount = manager?.addresses?.first ?? .zero
+
                     appState.web3 = web3
                     appState.currentAccount = currentAccount
                 }
